@@ -2,6 +2,8 @@
 
 <p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
 
+Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+
 ### Heading and paragraph
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
@@ -17,9 +19,10 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 
 ### Default button
 
-Dolorem dolor doloremque, perspiciatis at obcaecati ullam eligendi! Alias dolorum, possimus voluptates natus totam! Quae animi nobis delectus pariatur doloribus unde saepe!
+Alias dolorum, possimus voluptates natus totam! Quae animi nobis delectus pariatur doloribus unde saepe!
 
 	@example
-	a.btn.btn-sm.btn-default click me
+	a.btn.btn-sm.btn-default default button
+	<a class="btn btn-sm btn-primary">primary button</a>
 
 <hr>

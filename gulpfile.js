@@ -4,29 +4,28 @@ var $ = require('gulp-load-plugins')({
     replaceString: /\bgulp[\-.]/
   });
 var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
 
 gulp.task('bs', function() {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: "dist/styleguide",
+      startPath: "/index.html"
     },
     notify: true,
-    xip: false
+    reloadDelay: 2000
   });
 });
 
-
 gulp.task('guide', function() {
-  gulp.src('src/styleguide/*.md')
+  gulp.src('src/styleguide/**')
     .pipe($.shell([
       'styledown src/styleguide/index.md src/styleguide/config.md > dist/styleguide/index.html'
-    ]));
+    ]))
+    .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function() {
   gulp.watch(['src/styleguide/**'], ['guide']);
-  gulp.watch(['dist/styleguide/index.html']).on("change", reload);
 });
 
 gulp.task('default', ['bs', 'guide', 'watch']);
