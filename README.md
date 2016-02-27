@@ -1,10 +1,23 @@
 # gen-styledown
 styledown w/ gulp.js and browser-sync
 
-## Require
+## Getting Started
 
-[styledown](https://github.com/styledown/styledown/)
+Cloan this repo. and run `npm i`.  
 
 ```shell
-npm i -g styledown
+npm i
 ```
+
+## Run
+
+```shell
+npm start
+```
+
+or
+
+```shell
+gulp
+```
+
