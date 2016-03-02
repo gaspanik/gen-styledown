@@ -1,19 +1,16 @@
 {
   "name": "gen-styledown",
   "version": "0.1.0",
-  "description": "styledown w/ gulp.js and BrowserSync",
+  "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp",
-    "postinstall": "mkdir -p dist/styleguide; styledown --css > dist/styleguide/styledown.css; styledown --js > dist/styleguide/styledown.js; npm start;"
+    "start": "gulp"
   },
+  "author": "Masaaki Komori",
+  "License": "MIT",
   "devDependencies": {
     "browser-sync": "^2.11.1",
     "gulp": "^3.9.1",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-shell": "^0.5.2",
     "styledown": "^1.0.2"
-  },
-  "author": "Masaaki Komori",
-  "license": "MIT"
+  }
 }

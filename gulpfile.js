@@ -1,31 +1,24 @@
 var gulp = require('gulp');
-var $ = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'gulp.*'],
-    replaceString: /\bgulp[\-.]/
-  });
+var exec = require('child_process').exec;
 var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
 
-gulp.task('bs', function() {
-  browserSync.init({
-    server: {
-      baseDir: "dist/styleguide",
-      startPath: "/index.html"
-    },
-    notify: true,
-    reloadDelay: 2000
-  });
+gulp.task('guide', function () {
+  exec('styledown src/index.md src/config.md > styleguide/index.html');
 });
 
-gulp.task('guide', function() {
-  gulp.src('src/styleguide/**')
-    .pipe($.shell([
-      'styledown src/styleguide/index.md src/styleguide/config.md > dist/styleguide/index.html'
-    ]))
-    .pipe(browserSync.stream());
+gulp.task('serve', ['guide'], function() {
+  browserSync.init({
+    server: {
+      baseDir: "styleguide/",
+    },
+    notify: true,
+    reloadDelay: 1000
+  });
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['src/styleguide/**'], ['guide']);
+  gulp.watch(['src/**'], ['guide', reload]);
 });
 
-gulp.task('default', ['bs', 'guide', 'watch']);
+gulp.task('default', ['serve', 'watch']);
